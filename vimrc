@@ -73,6 +73,10 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()
 
+mapping <silent> <C-h> <C-w><
+map <silent> <C-j> <C-W>-
+map <silent> <C-k> <C-W>+
+map <silent> <C-l> <C-w>>
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
