@@ -1,5 +1,33 @@
+" :set paste
+" :set nopaste
 
-set nocompatible                  " Must come first because it changes other options.
+" Vundle
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/vundle/Vundle.vim
+
+call vundle#begin('~/.vim/vundle')
+
+Bundle 'gmarik/Vundle.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'ntpeters/vim-better-whitespace'
+Bundle "jQuery"
+Bundle "rails.vim"
+Bundle "vim-ruby/vim-ruby"
+Bundle "hari-rangarajan/CCTree"
+Bundle "fatih/vim-go"
+Bundle "tpope/vim-surround.git"
+Bundle "tpope/vim-rbenv"
+Bundle "craigemery/vim-autotag"
+Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Bundle 'autoload_cscope.vim'
+Bundle 'kien/ctrlp.vim'
+
+call vundle#end()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
@@ -39,14 +67,16 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set tabstop=4                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
+set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+"
 " Tab mappings.
+"
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
@@ -59,21 +89,8 @@ map <leader>tm :tabmove
 
 
 filetype on
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles() 
 
-function! LoadCscope()
-  let db = findfile("cscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocsverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set csverbose
-  endif
-endfunction
-au BufEnter /* call LoadCscope()
-
-mapping <silent> <C-h> <C-w><
+map <silent> <C-h> <C-w><
 map <silent> <C-j> <C-W>-
 map <silent> <C-k> <C-W>+
 map <silent> <C-l> <C-w>>
@@ -81,7 +98,7 @@ map <silent> <C-l> <C-w>>
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
-" Controversial...swap colon and semicolon for easier commands
+"Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
 "nnoremap : ;
 
