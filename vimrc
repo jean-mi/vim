@@ -1,6 +1,3 @@
-" :set paste
-" :set nopaste
-
 " Vundle
 
 set nocompatible              " be iMproved, required
@@ -12,8 +9,7 @@ set rtp+=~/.vim/vundle/Vundle.vim
 call vundle#begin('~/.vim/vundle')
 
 Bundle 'gmarik/Vundle.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle "jQuery"
 Bundle "rails.vim"
@@ -21,7 +17,12 @@ Bundle "vim-ruby/vim-ruby"
 Bundle "hari-rangarajan/CCTree"
 Bundle "fatih/vim-go"
 Bundle "tpope/vim-surround.git"
+Bundle "tpope/vim-ragtag.git"
+Bundle 'tpope/vim-fugitive'
 Bundle "tpope/vim-rbenv"
+Bundle "tpope/vim-rake"
+Bundle "tpope/vim-endwise"
+Bundle "tpope/vim-bundler"
 Bundle "craigemery/vim-autotag"
 Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Bundle 'autoload_cscope.vim'
@@ -31,8 +32,6 @@ call vundle#end()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
-
-runtime macros/matchit.vim        " Load the matchit plugin.
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -49,7 +48,7 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
-set number                        " Show line numbers.
+set nonumber                      " Show line numbers.
 set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
@@ -66,13 +65,22 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-set tabstop=4                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
+set tabstop=4                     " Global tab width.
+set shiftwidth=2                  " And again, related.
+set expandtab                     " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+set tags=tags;                    " works with 'set autochdir'
+set tags=./tags; 
+
+"
+" Automatic fold settings for specific files. Uncomment to use.
+"
+" autocmd FileType ruby setlocal foldmethod=syntax
+" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
 "
 " Tab mappings.
@@ -86,7 +94,6 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
-
 
 filetype on
 
@@ -105,7 +112,4 @@ map <silent> <C-l> <C-w>>
 "vnoremap ; :
 "vnoremap : ;
 
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
