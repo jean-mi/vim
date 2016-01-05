@@ -12,7 +12,8 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jQuery'
-Plugin 'rails'
+Plugin 'fatih/vim-go'
+Plugin 'rails.vim'
 Plugin 'CCTree'
 Plugin 'go.vim'
 Plugin 'tpope/vim-surround.git'
@@ -26,6 +27,7 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plugin 'autoload_cscope.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 
@@ -73,7 +75,7 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set tags=tags;                    " works with 'set autochdir'
-set tags=./tags; 
+set tags=./tags;
 
 "
 " Automatic fold settings for specific files. Uncomment to use.
@@ -111,4 +113,12 @@ map <silent> <C-l> <C-w>>
 "vnoremap ; :
 "vnoremap : ;
 
+" Tagbar setting
+let g:tagbar_left=1
+nmap <F5>t:Tagbar Toggle<CR>
 
+" Removes trailing spaces
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
+autocmd FileType python,java,ruby,make,go autocmd BufWritePre  * :call TrimWhiteSpace()
