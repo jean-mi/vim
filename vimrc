@@ -4,29 +4,28 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/vundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin('~/.vim/vundle')
+call vundle#begin()
 
-Bundle 'gmarik/Vundle.vim'
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle "jQuery"
-Bundle "rails.vim"
-Bundle "vim-ruby/vim-ruby"
-Bundle "hari-rangarajan/CCTree"
-Bundle "fatih/vim-go"
-Bundle "tpope/vim-surround.git"
-Bundle "tpope/vim-ragtag.git"
-Bundle 'tpope/vim-fugitive'
-Bundle "tpope/vim-rbenv"
-Bundle "tpope/vim-rake"
-Bundle "tpope/vim-endwise"
-Bundle "tpope/vim-bundler"
-Bundle "craigemery/vim-autotag"
-Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Bundle 'autoload_cscope.vim'
-Bundle 'kien/ctrlp.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'jQuery'
+Plugin 'rails'
+Plugin 'CCTree'
+Plugin 'go.vim'
+Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-ragtag.git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-bundler'
+Plugin 'craigemery/vim-autotag'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plugin 'autoload_cscope.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
